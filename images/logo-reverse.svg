@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="120" viewBox="0 0 620 120" role="img" aria-labelledby="title desc">
+  <title id="title">星旭新能源反白标志</title>
+  <desc id="desc">适用于深色背景的星旭新能源星核坐标标志</desc>
+  <g transform="translate(2 0)" fill="none" stroke="#F4F7F8">
+    <circle cx="60" cy="60" r="44" stroke-width="9.5" stroke-dasharray="50 19.1" transform="rotate(-90 60 60)"/>
+    <g stroke-width="5.5" stroke-linecap="square">
+      <path d="M79 41 102 18"/>
+      <path d="M18 102 41 79"/>
+      <path d="M93 60h18"/>
+    </g>
+  </g>
+  <path d="M62 29 67 55 94 60 67 65 62 92 57 65 31 60 57 55Z" fill="#F4F7F8"/>
+  <rect x="58" y="56" width="8" height="8" rx="1" fill="#111A3A"/>
+  <g fill="#F4F7F8">
+    <text x="142" y="65" font-family="IBM Plex Sans SC, Microsoft YaHei UI, PingFang SC, sans-serif" font-size="45" font-weight="600" letter-spacing="2">星旭新能源</text>
+    <text x="144" y="96" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" letter-spacing="8">XINGXU ENERGY</text>
+  </g>
+</svg>
