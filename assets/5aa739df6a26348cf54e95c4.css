@@ -1,0 +1,16 @@
+html[data-refinement] .resource-category-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px 14px}
+.asset-overview{grid-template-columns:48px minmax(0,1fr);padding:14px 12px;gap:12px}
+.asset-overview h3{font-size:16px!important;line-height:1.5}.asset-overview p{font-size:14px!important;line-height:1.65}
+.asset-overview>div:last-child>span{font-size:11px;line-height:1.5}.asset-scope{gap:6px;margin-top:10px}
+.asset-scope b{font-size:12px!important;line-height:1.5;white-space:normal;overflow:visible}
+.asset-toolbar{margin:14px 0;grid-template-columns:minmax(0,1fr) 56px}
+.asset-toolbar input{height:46px;font-size:14px;padding-right:8px}.asset-toolbar kbd{display:none}
+.asset-toolbar p{font-size:12px}.asset-toolbar p b{font-size:15px}
+.asset-entry{grid-template-columns:48px minmax(0,1fr)!important;padding:16px 0;gap:10px}
+.entry-copy h3{font-size:15px!important;line-height:1.55}.entry-copy p{display:block;-webkit-line-clamp:unset;overflow:visible;font-size:12px!important;line-height:1.7}
+.entry-state{font-size:12px;line-height:1.5}.entry-file b{font-size:12px;line-height:1.4}
+.entry-action{grid-column:2;justify-self:end;width:112px!important;min-height:44px;display:flex;justify-content:center;gap:8px}
+.entry-action span{font-size:13px;line-height:1.4}.asset-empty{font-size:14px;line-height:1.7}
+.access-guide{padding:14px 12px;margin-top:16px}.access-guide p{grid-template-columns:8px minmax(0,1fr)!important;padding:12px 0;gap:8px}
+.access-guide p b{font-size:14px}.access-guide p span{grid-column:2;font-size:12px!important;line-height:1.7}
+

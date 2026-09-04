@@ -1,0 +1,11 @@
+.stage-overview{grid-template-columns:1fr;gap:10px;padding:14px}
+.stage-overview b{font-size:16px}.stage-overview p{font-size:14px!important;line-height:1.65}
+.task-rail-head{flex-wrap:wrap;padding:18px 0 10px}.task-rail-head b{font-size:15px}.task-rail-head span{font-size:12px;white-space:normal}
+.practice-task-rail{gap:5px}.practice-task-rail button{min-height:102px;padding:8px 2px}
+.practice-task-rail b{font-size:14px;line-height:1.4}.practice-task-rail small{font-size:12px!important;line-height:1.4;white-space:normal;text-align:center}
+.practice-detail{margin-top:16px}
+.learning-output{margin-top:16px;padding:14px 10px}.learning-output>header{flex-wrap:wrap}
+.learning-output>header b{font-size:15px}.learning-output>header span{font-size:12px}
+.learning-output>div{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.learning-output p{padding:10px 6px}.learning-output p :is(span,b){font-size:12px;line-height:1.6}
+

@@ -1,0 +1,14 @@
+.page04-v5 .hero-summary{max-width:220px}.page04-v5 .hero-copy{width:78%}
+html .page04-v5 .category-tabs button{flex:1}html .page04-v5 .category-tabs button span{min-width:0}
+.category-current{font-size:12px;line-height:1.5;flex-wrap:wrap}.category-current span{font-size:11px;line-height:1.4}
+html .page04-v5 .taxonomy-grid{gap:8px;grid-template-columns:repeat(2,minmax(0,1fr))}
+html .page04-v5 .taxonomy-grid button{min-height:110px;padding:12px 8px}
+html .page04-v5 .taxonomy-grid b{font-size:15px;line-height:1.5;white-space:normal}
+html .page04-v5 .taxonomy-grid small{font-size:10px;line-height:1.4}
+.model-code{font-size:10px;width:46px;height:30px}
+html .page04-v5 .asset-ledger{padding:8px 12px;margin-top:16px}
+html .page04-v5 .ledger-row{grid-template-columns:54px minmax(0,1fr);padding:12px 0;gap:10px}
+html .page04-v5 .ledger-row>span{font-size:12px}html .page04-v5 .ledger-row strong{font-size:14px;line-height:1.65}
+.kind-tags i{font-size:12px;line-height:1.5}
+@media(max-width:359px){.page04-v5 .hero-summary{max-width:200px!important}.page04-v5 .hero-visual{opacity:.36}}
+
