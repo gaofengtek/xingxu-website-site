@@ -1,0 +1,7 @@
+html,body{height:auto!important;min-height:100%}html body{overflow-y:auto;overscroll-behavior:auto}
+.hero{min-height:844px;height:100svh}
+.brandname strong{font-size:16px}.brandname small{font-size:9px;line-height:1.5;letter-spacing:.08em;opacity:.9}
+.kicker{font-size:10px;line-height:1.6;letter-spacing:.06em}.summary{font-size:16px;line-height:1.85;color:#f0f5f8}
+.site-entry{min-height:74px;border-color:#9bc6d0;background:rgba(4,18,42,.68)}
+.site-entry strong{font-size:17px}.site-entry small{font-size:10px}.swipe-cue{font-size:12px;color:#d7e9ec}
+@media(max-width:359px){.brandbar,.intro,.entry-zone{left:20px;right:20px}.kicker{font-size:9px;letter-spacing:0}.summary{font-size:16px}.intro h1{font-size:38px}}

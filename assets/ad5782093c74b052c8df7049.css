@@ -1,0 +1,48 @@
+/* 只在独立整改页加载；沿用原品牌、插图和内容。 */
+html{scrollbar-width:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}html::-webkit-scrollbar{display:none}
+html[data-refinement] body{overflow-x:visible}button,a,input,textarea{touch-action:manipulation}
+[hidden]{display:none!important}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #0d7b89;outline-offset:3px}
+html[data-refinement] .mobile-page{width:100%;max-width:480px;overflow:clip;overflow-clip-margin:4px;margin:auto}
+html[data-refinement] .page-content{padding:18px 14px 28px}
+html[data-refinement] .hero-brandmark strong{font-size:12px}
+html[data-refinement] .hero-summary{font-size:12px;line-height:1.65;color:#c5e0e5}
+html[data-refinement] .page-tabs{height:auto;min-height:64px;padding:10px 10px;gap:6px}
+html[data-refinement] .page-tabs button,html[data-refinement] .page-tabs button:nth-child(3){min-height:44px;min-width:44px;padding:0;flex:1}
+html[data-refinement] .page-tabs button span{height:44px;min-width:0;padding:0 7px;font-size:13px;line-height:1.3;white-space:normal;text-align:center}
+html[data-refinement] .page-tabs button span i{font-size:9px}
+html[data-refinement] .page-tabs button[aria-pressed="true"] span,html[data-refinement] .page-tabs button[aria-selected="true"] span{color:#082b3e}
+html[data-refinement] .section-head{margin-bottom:12px}
+html[data-refinement] .section-head h2{font-size:19px;line-height:1.45}
+html[data-refinement] .primary-action{min-height:62px;margin-top:18px;padding:12px 15px;color:#082b3e}
+html[data-refinement] .primary-action b{font-size:16px;line-height:1.5}
+html[data-refinement] .primary-action small{font-size:10px;line-height:1.45;color:#254855;white-space:normal}
+html[data-refinement] .page-boundary{font-size:12px;line-height:1.7;margin-top:14px;color:#52676e}
+html[data-refinement] .truth-callout{margin-top:16px;padding:12px;grid-template-columns:64px minmax(0,1fr);gap:10px}
+html[data-refinement] .truth-callout strong{font-size:12px;line-height:1.6}
+html[data-refinement] .truth-callout p{font-size:12px;line-height:1.7}
+html[data-refinement] :is(.prototype-toast,.page-toast){font-size:13px;line-height:1.6}
+html[data-refinement] :is(.practice-status,.architecture-status,.service-status,.asset-status){display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 14px}
+html[data-refinement] :is(.practice-status,.architecture-status,.service-status,.asset-status) :is(strong,span,i,em){font-size:12px;line-height:1.5;text-align:left}
+html[data-refinement] :is(.practice-status,.architecture-status,.service-status) strong{width:100%}
+html[data-refinement] :is(.practice-detail-head,.systems-detail-head,.service-detail-head){padding:14px 12px;grid-template-columns:44px minmax(0,1fr);gap:10px}
+html[data-refinement] :is(.systems-detail-head,.service-detail-head)>b{grid-column:2;justify-self:start;max-width:none;font-size:12px;line-height:1.5}
+html[data-refinement] .practice-detail-head>b{display:none}
+html[data-refinement] :is(.practice-detail-head,.systems-detail-head,.service-detail-head) h3{font-size:16px;line-height:1.5}
+html[data-refinement] :is(.practice-detail-head,.systems-detail-head,.service-detail-head)>div>span{font-size:12px;line-height:1.5}
+html[data-refinement] :is(.practice-detail-rows,.systems-detail-rows,.service-detail-rows){padding:0 12px 6px}
+html[data-refinement] :is(.practice-detail-rows,.systems-detail-rows,.service-detail-rows) p{padding:10px 0;grid-template-columns:66px minmax(0,1fr);gap:10px;align-items:start}
+html[data-refinement] :is(.practice-detail-rows,.systems-detail-rows,.service-detail-rows) span{font-size:12px;line-height:1.7}
+html[data-refinement] :is(.practice-detail-rows,.systems-detail-rows,.service-detail-rows) b{font-size:14px;line-height:1.65}
+html[data-refinement] :is(.foundation-section,.scenario-section,.service-foundation,.incubation-section,.access-guide)>header{align-items:start;flex-wrap:wrap;gap:6px;padding:8px 0}
+html[data-refinement] :is(.foundation-section,.scenario-section,.service-foundation,.incubation-section,.access-guide)>header h2{font-size:17px;line-height:1.5}
+html[data-refinement] :is(.foundation-section,.scenario-section,.service-foundation,.incubation-section,.access-guide)>header :is(small,span){font-size:12px;line-height:1.5;white-space:normal}
+@media(max-width:359px){
+html[data-refinement] .page-content{padding-inline:12px}
+html[data-refinement] .page-tabs{padding-inline:8px;gap:4px}
+html[data-refinement] .page-tabs button span{padding-inline:4px}
+html[data-refinement] .hero-copy{padding-left:16px}
+html[data-refinement] .page-hero{min-height:286px}
+html[data-refinement] .hero-summary{max-width:145px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

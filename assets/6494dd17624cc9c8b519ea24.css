@@ -1,0 +1,12 @@
+.functional-page{padding-inline:22px;min-height:844px}
+.brandname strong{font-size:16px}.brandname small{font-size:9px;line-height:1.5;letter-spacing:.08em;opacity:.9}
+.functional-intro>p:last-child{font-size:15px;line-height:1.8;color:#e1edf3}
+.contact-sheet{margin-top:38px;padding:20px 16px}
+.contact-primary{padding-right:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.contact-primary>span{grid-column:1/-1}.contact-primary strong{font-size:29px;align-self:center}
+.quiet-action{position:static;min-height:46px;min-width:80px;font-size:13px}
+.contact-primary>span,.contact-address span,.prepare-block>span{font-size:12px;line-height:1.6;letter-spacing:.04em}
+.contact-address p{font-size:14px;line-height:1.8}.icon-action{font-size:13px;min-height:46px}
+.prepare-items{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.prepare-items b{font-size:13px;min-height:40px}
+.safety-note{font-size:12px;line-height:1.75;color:#b9cbd8}
+@media(max-width:359px){.functional-page{padding-inline:18px}.contact-primary strong{font-size:27px;grid-column:1/-1}.quiet-action{justify-self:start}.contact-address{align-items:start;flex-direction:column}.contact-address .icon-action{align-self:flex-end}}

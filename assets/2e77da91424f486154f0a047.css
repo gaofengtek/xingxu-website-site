@@ -1,0 +1,11 @@
+.functional-page{padding-inline:22px;min-height:844px}
+.brandname strong{font-size:16px}.brandname small{font-size:9px;line-height:1.5;letter-spacing:.08em;opacity:.9}
+.functional-intro>p:last-child{font-size:15px;line-height:1.8;color:#e1edf3}
+.feedback-sheet{padding:20px 16px}.feedback-sheet legend,.field-label{font-size:14px;line-height:1.5}
+.feedback-sheet small{font-size:12px}.need-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.need-grid span{min-height:46px;font-size:14px}.field-label{margin-top:18px}
+.feedback-sheet>input{height:48px;font-size:16px}.feedback-sheet textarea{min-height:120px;font-size:16px;line-height:1.7}
+.feedback-sheet>input::placeholder,.feedback-sheet textarea::placeholder{color:#a9bccb}
+.form-safety{font-size:12px;line-height:1.75;color:#b9cbd8}.submit-button{min-height:52px;margin-top:16px}.submit-button span{font-size:16px}
+.form-status{font-size:13px;line-height:1.7}
+@media(max-width:359px){.functional-page{padding-inline:18px}.feedback-sheet{padding-inline:14px}}
