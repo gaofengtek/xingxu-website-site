@@ -7,41 +7,49 @@
   <meta name="description" content="星旭能源日报：阅读绿电直连工程应用与星旭技术路线完整专题报告。">
   <title>能源日报｜星旭新能源</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="../column-mobile-overrides.css?v=20260905-1">
-  <script src="page.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260905-2">
+  <script src="page.js?v=20260905-2" defer></script>
 </head>
 <body data-column="energy-daily">
   <main class="page" aria-label="能源日报">
     <header class="hero">
+      <div class="hero-brand">
+        <img src="assets/xingxu-logo.png" alt="">
+        <span>星旭新能源</span>
+      </div>
       <div class="hero-copy">
-        <div class="hero-kicker"><small>能源日报</small></div>
+        <div class="hero-kicker"><span>能源日报</span><small>ENERGY DAILY</small></div>
         <h1>追踪能源变化<br><span>读懂行业影响</span></h1>
-        <p><span class="scope">聚焦市场 · 机理 · 技术前沿</span><span class="value">讲清变化原因与应用方案</span></p>
+        <p>聚焦市场、机理与技术前沿<br>讲清变化原因与工程应用</p>
       </div>
-      <div class="hero-nodes" aria-hidden="true">
-        <em class="hero-node mechanism">机理</em><em class="hero-node frontier">前沿</em>
-        <em class="hero-node market">市场</em><em class="hero-node solution">方案</em>
-      </div>
-      <div class="hero-center" aria-hidden="true">趋势</div>
+      <span class="hero-coordinate" aria-hidden="true">ENERGY INTELLIGENCE · 018</span>
     </header>
+
     <nav class="categories" aria-label="按能源方向筛选">
-      <button class="cat active" type="button" data-filter="全部" aria-pressed="true">全部</button>
-      <button class="cat" type="button" data-filter="氢能" aria-pressed="false">氢能</button>
-      <button class="cat" type="button" data-filter="绿电" aria-pressed="false">绿电</button>
-      <button class="cat" type="button" data-filter="数字能源" aria-pressed="false">数字能源</button>
-      <button class="cat" type="button" data-filter="综合能源" aria-pressed="false">综合能源</button>
+      <button class="cat active" type="button" data-step="01" data-filter="全部" aria-pressed="true">全部</button>
+      <button class="cat" type="button" data-step="02" data-filter="氢能" aria-pressed="false">氢能</button>
+      <button class="cat" type="button" data-step="03" data-filter="绿电" aria-pressed="false">绿电</button>
+      <button class="cat" type="button" data-step="04" data-filter="数字能源" aria-pressed="false">数字能源</button>
+      <button class="cat" type="button" data-step="05" data-filter="综合能源" aria-pressed="false">综合能源</button>
     </nav>
+
     <div class="content">
       <article class="latest" data-category="绿电" aria-labelledby="latest-title">
-        <div class="latest-top"><b class="latest-badge">最新一期</b><time class="issue-date" datetime="2026-09-03">2026-09-03</time><span class="topic">绿电</span></div>
+        <span class="issue-mark" aria-hidden="true">018</span>
+        <div class="latest-top">
+          <b class="latest-badge">最新一期</b>
+          <time class="issue-date" datetime="2026-09-03">2026-09-03</time>
+          <span class="topic">绿电</span>
+        </div>
         <h2 id="latest-title">绿电直连工程应用<br>与星旭技术路线</h2>
-        <div class="latest-tags"><span>市场机制</span><span>项目影响</span><span>星旭解读</span></div>
-        <div class="latest-bottom">
-          <span aria-hidden="true"></span>
-          <a class="read-button" href="issues/green-power-direct-2026-09-03/" style="text-decoration:none">阅读全文 <i aria-hidden="true">→</i></a>
+        <div class="latest-footer">
+          <div class="latest-tags" aria-label="内容标签">
+            <span>市场机制</span><span>项目影响</span><span>星旭解读</span>
+          </div>
+          <a class="read-button" href="issues/green-power-direct-2026-09-03/">阅读全文 <i aria-hidden="true">→</i></a>
         </div>
       </article>
+
       <section class="history" aria-labelledby="history-title">
         <div class="history-head"><h2 id="history-title">往期内容</h2></div>
         <p class="history-empty empty-state">本页暂无其他报告。</p>
