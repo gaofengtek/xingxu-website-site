@@ -18,5 +18,25 @@ window.XINGXU_RESOURCES = [
     actionLabel: '查看资料详情',
     sha256: '522C0E7A0AC3A84607EFEF2ABDAF9997A837D94BB3EC1768811B7FFD996B6211',
     notice: '横版演示资料，建议使用电脑查看或手机横屏阅读；不替代项目属地政策核查、接入批复或工程设计。'
+  },
+  {
+    id: 'computing-power-electricity-coordination-2026-09',
+    category: 'report',
+    title: '算电协同：模型、调度与工程实现',
+    edition: '从负荷画像、资源建模到协同调度与项目验证',
+    summary: '面向算力负荷与电力系统协同规划，梳理边界建模、源网荷储调度、教学算例复算和分阶段工程验证方法。',
+    topics: ['算电协同', '算力负荷', '源网荷储', '协同调度'],
+    version: 'v1.3',
+    updatedAt: '2026-09-05',
+    format: 'PDF',
+    sizeBytes: 2739170,
+    pageCount: 36,
+    applicableTo: '技术学习、方案研讨与规划模型构建',
+    access: 'direct',
+    accessLabel: '直接下载',
+    href: 'computing-power-electricity-coordination-2026-09/',
+    actionLabel: '查看资料详情',
+    sha256: '6423ACD6B8CB367384270640DB64C3D84891B92432F31B205C5528E117CADAC6',
+    notice: '横版演示资料，建议使用电脑查看或手机横屏阅读；教学复算不代表现场收益、实测结论或电气动态仿真结果。'
   }
 ];
