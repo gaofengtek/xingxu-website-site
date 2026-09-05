@@ -2,46 +2,81 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="星旭新能源公司新闻：记录公司建设、产品发布、技术交流与合作进展。">
-  <title>公司新闻｜星旭能源科技</title>
-  <link rel="stylesheet" href="../column-shell.css">
+  <meta name="description" content="星旭新能源公司新闻，记录公司建设、产品进展与重要节点。">
+  <title>公司新闻｜星旭新能源</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="assets/site.js"></script>
 </head>
-<body class="news">
-  <main class="page" aria-label="公司新闻">
-    <div class="status" aria-hidden="true"><span>9:41</span><span>5G · 86%</span></div>
-    <header class="hero">
-      <div class="hero-copy">
-        <div class="kicker">能源脉搏 · 公司新闻</div>
-        <h1>星旭在做什么<br><span>进展都在这里</span></h1>
-        <p>记录公司建设、产品发布、技术交流和合作中的真实进展。</p>
+<body data-page="column">
+  <a class="skip-link" href="#main-content">跳到新闻列表</a>
+
+  <header class="column-hero">
+    <div class="hero-inner">
+      <div class="brand-lockup" aria-label="星旭新能源公司新闻">
+        <span class="logo-plate"><img src="assets/星旭新能源_logo.png" alt="星旭新能源标志"></span>
+        <span class="brand-copy"><b>星旭新能源</b><small>公司新闻</small></span>
       </div>
-      <div class="signal" aria-hidden="true"><span class="signal-core">进展</span><b>建设</b><b>产品</b><b>交流</b><b>合作</b></div>
-    </header>
-    <nav class="column-nav" aria-label="能源脉搏栏目">
-      <a href="../energy-daily/">能源日报</a><a href="../policy-standards/">政策标准</a><a href="./" aria-current="page">公司新闻</a>
-    </nav>
-    <div class="content">
-      <section class="intro" data-mark="NEWS" aria-labelledby="intro-title">
-        <div class="intro-top"><span class="badge">栏目说明</span><span>真实事件 · 持续记录</span></div>
-        <h2 id="intro-title">让每一条进展都能核对</h2>
-        <p>公司新闻只记录真实发生且适合公开的信息。发布前核对事件时间、参与单位、现场资料和授权范围，不使用与实际业务无关的图库图片，也不把规划目标写成已完成成果。</p>
-        <div class="promise" aria-label="新闻范围"><span>公司建设</span><span>产品发布</span><span>技术交流</span></div>
-      </section>
-      <div class="section-head"><h2>近期新闻</h2><span>重要进展及时更新</span></div>
-      <section class="empty" aria-label="暂无公开新闻">
-        <div class="empty-icon" aria-hidden="true">N</div><h3>首批新闻正在整理</h3><p>当前暂无已公开的公司新闻。完成事实核对、图片授权和发布确认后，正式内容将在这里更新。</p>
-      </section>
-      <div class="section-head"><h2>发布原则</h2><span>真实比热闹更重要</span></div>
-      <div class="principles">
-        <article class="principle"><b>01</b><div><h3>事件真实</h3><p>时间、地点、参与主体和事件过程均有可核对的内部或公开依据。</p></div></article>
-        <article class="principle"><b>02</b><div><h3>图片合规</h3><p>现场照片、人物信息和合作单位标识在授权范围内使用，无图时不以图库假图替代。</p></div></article>
-        <article class="principle"><b>03</b><div><h3>边界清楚</h3><p>区分公司规划、阶段进展、产品发布和正式验收，不扩大阶段成果。</p></div></article>
+
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow eyebrow-light">COMPANY NEWS · 01</p>
+          <h1>星旭在做什么<br><span>进展都在这里</span></h1>
+          <p class="hero-summary">记录公司建设、产品发布、技术交流和合作中的真实进展。</p>
+        </div>
+        <div class="progress-orbit" aria-hidden="true">
+          <span class="orbit-core">进展</span>
+          <i class="orbit-ring orbit-ring-one"></i>
+          <i class="orbit-ring orbit-ring-two"></i>
+          <b class="orbit-node node-one">建设</b>
+          <b class="orbit-node node-two">产品</b>
+          <b class="orbit-node node-three">交流</b>
+          <b class="orbit-node node-four">合作</b>
+        </div>
       </div>
-      <a class="primary-link" href="../energy-daily/">查看已发布的能源日报 <i aria-hidden="true">→</i></a>
+
+      <div class="hero-baseline" aria-hidden="true"><span></span><i></i><i></i><i></i></div>
     </div>
-    <footer class="site-footer">西安星旭新能源科技有限公司<br>公司建设 · 产品进展 · 技术交流 · 合作动态</footer>
+  </header>
+
+  <main id="main-content" class="page-shell">
+    <section class="news-section" aria-labelledby="recent-news-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">RECENT NEWS</p>
+          <h2 id="recent-news-title">近期新闻</h2>
+        </div>
+        <p>重要进展，及时记录</p>
+      </div>
+
+      <div class="news-list">
+        <a class="news-card news-card-featured reveal" href="articles/xingxu-launch/index.html">
+          <span class="news-index" aria-hidden="true">01</span>
+          <span class="news-body">
+            <span class="news-meta"><b>公司建设</b><time datetime="2026-04-15">2026.04.15</time></span>
+            <strong>星旭启程｜西安星旭新能源科技有限公司正式成立</strong>
+            <span class="news-digest">从一个明确的起点出发，把能源模型、软件与验证工作做成可以长期积累的技术资产。</span>
+            <span class="news-cta">阅读全文 <i aria-hidden="true">→</i></span>
+          </span>
+        </a>
+
+        <a class="news-card reveal" href="articles/official-account/index.html">
+          <span class="news-index" aria-hidden="true">02</span>
+          <span class="news-body">
+            <span class="news-meta"><b>公司建设</b><span>公众号正式开通</span></span>
+            <strong>星旭新窗口｜“星旭能源科技”微信公众号正式开通</strong>
+            <span class="news-digest">以统一的信息窗口持续分享能源电力仿真、数智孪生软件、技术服务与公司真实进展。</span>
+            <span class="news-cta">阅读全文 <i aria-hidden="true">→</i></span>
+          </span>
+        </a>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <img src="assets/星旭新能源_logo.png" alt="" aria-hidden="true">
+    <p><b>西安星旭新能源科技有限公司</b><span>以真实进展，沉淀长期价值</span></p>
+  </footer>
 </body>
 </html>
