@@ -1,0 +1,292 @@
+:root {
+  --column-navy: #071b34;
+  --column-teal: #058d8e;
+  --column-cyan: #21c7cf;
+  --column-orange: #ff7a1a;
+  --column-ink: #102a3f;
+  --column-muted: #5f7480;
+  --column-paper: #f4f8f7;
+}
+
+body[data-column] {
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+}
+
+body[data-column="energy-daily"] .page,
+body[data-column="policy-standards"] .page {
+  padding-top: 0;
+}
+
+body[data-column="energy-daily"] .hero-kicker small,
+body[data-column="policy-standards"] .kicker {
+  letter-spacing: .08em;
+}
+
+body[data-column="policy-standards"] .content {
+  padding-top: 18px;
+}
+
+.policy-intro-compact {
+  border: 1px solid rgba(5, 141, 142, .2);
+  border-left: 4px solid var(--column-orange);
+  border-radius: 14px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(7, 27, 52, .06);
+}
+
+.policy-intro-compact .badge {
+  display: inline-flex;
+  border-radius: 999px;
+  background: rgba(5, 141, 142, .12);
+  color: #087c7e;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.policy-intro-compact h2 {
+  margin: 10px 0 6px;
+  color: var(--column-ink);
+  font-size: 21px;
+  line-height: 1.45;
+}
+
+.policy-intro-compact p,
+.policy-update-note {
+  margin: 0;
+  color: var(--column-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+body[data-column="policy-standards"] .empty {
+  min-height: 0;
+  padding: 22px 18px;
+}
+
+body[data-column="policy-standards"] .empty-icon {
+  width: 42px;
+  height: 42px;
+  font-size: 22px;
+}
+
+.policy-update-note {
+  margin-top: 14px;
+  border-radius: 12px;
+  background: rgba(5, 141, 142, .08);
+  padding: 12px 14px;
+}
+
+.policy-update-note strong {
+  color: var(--column-ink);
+}
+
+html[data-refinement] .hero-brandmark small {
+  display: none;
+}
+
+html[data-refinement] .column-truth-note {
+  margin: 0 0 14px;
+  border-left: 4px solid var(--column-orange);
+  border-radius: 0 10px 10px 0;
+  background: #eef7f6;
+  color: #536b75;
+  padding: 11px 12px;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+html[data-refinement] .column-truth-note strong {
+  color: var(--column-ink);
+}
+
+html[data-refinement] .column-feedback-link {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  text-decoration: none;
+}
+
+@media (max-width: 430px) {
+  body[data-column="energy-daily"] .hero,
+  body[data-column="policy-standards"] .hero {
+    min-height: 228px;
+  }
+
+  body[data-column="policy-standards"] .hero {
+    min-height: 244px;
+  }
+
+  body[data-column="policy-standards"] .hero-copy p {
+    max-width: 195px;
+  }
+
+  body[data-column="energy-daily"] .hero h1,
+  body[data-column="policy-standards"] .hero h1 {
+    font-size: 34px;
+    line-height: 1.22;
+  }
+
+  html[data-refinement] .page-hero {
+    min-height: 238px;
+  }
+
+  html[data-refinement] .hero-copy h1,
+  html[data-refinement] .hero-title {
+    font-size: clamp(28px, 8.2vw, 34px);
+    line-height: 1.22;
+  }
+
+  html[data-refinement] .hero-summary {
+    max-width: 210px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  html[data-refinement] .architecture-columns {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  html[data-refinement] .architecture-layer {
+    display: none;
+  }
+
+  html[data-refinement] .architecture-cutaway[data-active-layer="design"] [data-layer-panel="design"],
+  html[data-refinement] .architecture-cutaway[data-active-layer="twin"] [data-layer-panel="twin"],
+  html[data-refinement] .architecture-cutaway[data-active-layer="intelligence"] [data-layer-panel="intelligence"] {
+    display: block;
+  }
+
+  html[data-refinement] .architecture-layer > header {
+    justify-content: flex-start;
+    padding: 10px 12px;
+  }
+
+  html[data-refinement] .architecture-layer > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 0 8px 8px;
+  }
+
+  html[data-refinement] .architecture-layer.layer-design > div {
+    grid-template-columns: 1fr;
+  }
+
+  html[data-refinement] .architecture-layer button {
+    min-height: 68px;
+    grid-template-columns: 44px minmax(0, 1fr) auto !important;
+    align-items: center;
+    padding: 9px !important;
+  }
+
+  html[data-refinement] .architecture-layer button > em {
+    grid-column: auto !important;
+    justify-self: end;
+    margin: 0 !important;
+  }
+
+  html[data-refinement] .architecture-layer .product-code {
+    display: flex !important;
+    align-self: stretch;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  html[data-refinement] .architecture-layer .product-name b {
+    font-size: 14px;
+  }
+
+  html[data-refinement] .single-product {
+    min-height: 0;
+  }
+
+  html[data-refinement] .data-pulse {
+    display: none;
+  }
+
+  html[data-refinement] .practice-task-rail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  html[data-refinement] .practice-task-rail button {
+    min-height: 78px;
+    padding: 10px 8px;
+  }
+
+  html[data-refinement] .practice-task-rail button:last-child {
+    grid-column: 1 / -1;
+  }
+
+  html[data-refinement] .service-row > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  html[data-refinement] .service-row {
+    display: none;
+  }
+
+  html[data-refinement] .service-switchboard[data-active-group="core"] .row-core,
+  html[data-refinement] .service-switchboard[data-active-group="collaboration"] .row-collaboration,
+  html[data-refinement] .service-switchboard[data-active-group="intelligence"] .row-intelligence {
+    display: block;
+  }
+
+  html[data-refinement] .row-collaboration > div > button:first-child {
+    grid-column: auto;
+  }
+
+  html[data-refinement] .service-row button {
+    min-height: 72px;
+    grid-template-columns: 34px minmax(0, 1fr) auto !important;
+    padding: 10px !important;
+  }
+
+  html[data-refinement] .service-row button > em {
+    grid-column: auto !important;
+    justify-self: end;
+  }
+
+  html[data-refinement] .taxonomy-grid small {
+    display: none;
+  }
+
+  html[data-refinement] .primary-action small {
+    font-size: 11px;
+  }
+
+  body[data-column="technical-services"] .hero-copy h1 {
+    max-width: 220px;
+    font-size: 31px;
+  }
+}
+
+@media (max-width: 359px) {
+  body[data-column="policy-standards"] .hero-copy p {
+    max-width: 176px;
+  }
+
+  html[data-refinement] .service-row button {
+    grid-template-columns: 32px minmax(0, 1fr) !important;
+  }
+
+  html[data-refinement] .service-row button > em {
+    grid-column: 2 !important;
+    justify-self: start;
+  }
+
+  html[data-refinement] .architecture-layer button {
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+  }
+
+  html[data-refinement] .architecture-layer button > em {
+    grid-column: 2 !important;
+    justify-self: start;
+  }
+}
