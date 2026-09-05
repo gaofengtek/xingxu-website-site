@@ -1,13 +1,13 @@
 (() => {
   'use strict';
 
-  const TOTAL_PAGES = 32;
+  const TOTAL_PAGES = 22;
   const chapters = [
-    { key: 'intro', start: 1, end: 2, no: '00', title: '封面与导读', note: '阅读路径与内容边界' },
-    { key: 'conditions', start: 3, end: 10, no: '01', title: '项目条件', note: '准入、边界与基础资料' },
-    { key: 'calculation', start: 11, end: 21, no: '02', title: '方案计算', note: '源荷储配置、运行限额与费用' },
-    { key: 'delivery', start: 22, end: 28, no: '03', title: '工程与交付', note: '从计划到控制、验证与交付' },
-    { key: 'appendix', start: 29, end: 32, no: '+', title: '附录与来源', note: '输入、公式、复算与官方来源' }
+    { key: 'overview', start: 1, end: 7, no: '01', title: '报告概览', note: '政策、方案与测算总览' },
+    { key: 'admission', start: 8, end: 10, no: '02', title: '项目准入', note: '概念关系、模式选择与比例校核' },
+    { key: 'calculation', start: 11, end: 15, no: '03', title: '计量测算', note: '数据闭环、储能角色与费用边界' },
+    { key: 'validation', start: 16, end: 20, no: '04', title: '验证实施', note: '证据层级、工况矩阵与工作包' },
+    { key: 'sources', start: 21, end: 22, no: '05', title: '来源结论', note: '最新口径、结论与下一步' }
   ];
 
   const pages = document.querySelector('#report-pages');
@@ -20,6 +20,7 @@
   const viewerPrev = document.querySelector('#viewer-prev');
   const viewerNext = document.querySelector('#viewer-next');
   let viewerPage = 1;
+  let observerPauseUntil = 0;
 
   const chapterForPage = page => chapters.find(chapter => page >= chapter.start && page <= chapter.end);
   const pageLabel = page => String(page).padStart(2, '0');
@@ -27,7 +28,7 @@
   const chapterBreak = chapter => {
     const item = document.createElement('li');
     item.className = 'chapter-break';
-    item.setAttribute('aria-label', `第${chapter.no}章 ${chapter.title}`);
+    item.setAttribute('aria-label', `第${chapter.no}节点 ${chapter.title}`);
     item.innerHTML = `<b>${chapter.no}</b><span>${chapter.title}</span><small>${chapter.note}</small>`;
     return item;
   };
@@ -52,8 +53,8 @@
 
     image.className = 'page-image';
     image.src = `assets/pages/page-${pageLabel(page)}.webp`;
-    image.alt = `绿电直连工程应用与星旭技术路线，第 ${page} 页，${chapter.title}`;
-    image.width = 1601;
+    image.alt = `绿电直连项目研判与工程实施，第 ${page} 页，${chapter.title}`;
+    image.width = 1600;
     image.height = 900;
     image.decoding = 'async';
     image.loading = page <= 2 ? 'eager' : 'lazy';
@@ -81,23 +82,55 @@
     document.querySelectorAll('.report-page').forEach(element => {
       element.classList.toggle('is-current', Number(element.dataset.page) === safePage);
     });
-    chapterLinks.forEach(link => link.classList.toggle('active', link.dataset.chapter === activeChapter));
+    chapterLinks.forEach(link => {
+      const active = link.dataset.chapter === activeChapter;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
   };
 
-  const observer = new IntersectionObserver(entries => {
-    const visible = entries
-      .filter(entry => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-    if (visible.length) setCurrent(Number(visible[0].target.dataset.page));
-  }, { rootMargin: '-18% 0px -52% 0px', threshold: [0.05, 0.35, 0.7] });
+  const reportPageElements = [...document.querySelectorAll('.report-page')];
+  const syncCurrentFromScroll = () => {
+    if (performance.now() < observerPauseUntil) return;
+    const marker = document.querySelector('.site-bar').offsetHeight + document.querySelector('.chapter-nav').offsetHeight + 12;
+    let selected = reportPageElements[0];
+    for (const element of reportPageElements) {
+      if (element.getBoundingClientRect().top <= marker) selected = element;
+      else break;
+    }
+    setCurrent(Number(selected.dataset.page));
+  };
+  let scrollFrame = 0;
+  const requestScrollSync = () => {
+    if (scrollFrame) return;
+    scrollFrame = requestAnimationFrame(() => {
+      scrollFrame = 0;
+      syncCurrentFromScroll();
+    });
+  };
 
-  document.querySelectorAll('.report-page').forEach(page => observer.observe(page));
+  window.addEventListener('scroll', requestScrollSync, { passive: true });
+  window.addEventListener('resize', requestScrollSync);
   setCurrent(1);
+
+  chapterLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const chapter = chapters.find(item => item.key === link.dataset.chapter);
+      if (!chapter) return;
+      observerPauseUntil = performance.now() + 700;
+      setCurrent(chapter.start);
+      window.setTimeout(() => {
+        observerPauseUntil = 0;
+        syncCurrentFromScroll();
+      }, 720);
+    });
+  });
 
   const showViewerPage = page => {
     viewerPage = Math.min(TOTAL_PAGES, Math.max(1, page));
     viewerImage.src = `assets/pages/page-${pageLabel(viewerPage)}.webp`;
-    viewerImage.alt = `绿电直连工程应用与星旭技术路线，第 ${viewerPage} 页`;
+    viewerImage.alt = `绿电直连项目研判与工程实施，第 ${viewerPage} 页`;
     viewerCounter.textContent = `${viewerPage} / ${TOTAL_PAGES} · 可双指缩放`;
     viewerPrev.disabled = viewerPage === 1;
     viewerNext.disabled = viewerPage === TOTAL_PAGES;
