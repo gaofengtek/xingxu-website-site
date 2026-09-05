@@ -95,41 +95,13 @@ button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparen
 .hero-copy {
   position: absolute;
   z-index: 2;
-  top: 52px;
+  top: 60px;
   left: 20px;
   width: min(61%, 250px);
 }
 
-.hero-kicker {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 18px;
-  color: #ffad76;
-  font-size: 11px;
-  font-weight: 650;
-  letter-spacing: .08em;
-}
-
-.hero-kicker::before {
-  content: "";
-  width: 3px;
-  height: 14px;
-  flex: none;
-  border-radius: 3px;
-  background: var(--orange);
-  box-shadow: 0 0 12px rgba(247, 124, 35, .4);
-}
-
-.hero-kicker small {
-  color: rgba(160, 229, 235, .72);
-  font-size: 8px;
-  font-weight: 650;
-  letter-spacing: .12em;
-}
-
 .hero h1 {
-  margin: 9px 0 0;
+  margin: 0;
   color: #fff;
   font-size: clamp(29px, 8vw, 34px);
   font-weight: 800;
@@ -160,16 +132,6 @@ button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparen
   font-weight: 500;
   line-height: 1.66;
   letter-spacing: .01em;
-}
-
-.hero-coordinate {
-  position: absolute;
-  right: 12px;
-  bottom: 10px;
-  color: rgba(150, 229, 234, .40);
-  font-size: 7px;
-  font-weight: 650;
-  letter-spacing: .12em;
 }
 
 .categories {
