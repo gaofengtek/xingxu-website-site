@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Noto Sans SC Resource";
-  src: url("assets/fonts/NotoSansSC-Resource-Subset.ttf") format("truetype");
+  src: url("assets/fonts/NotoSansSC-Resource-Subset.ttf?v=20260906-link2") format("truetype");
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -194,12 +194,32 @@
 .rc-principles header > p { margin: 0 0 10px; color: var(--rc-cyan-dark); font-size: 12px; font-weight: 700; letter-spacing: .12em; }
 .rc-section-heading h2,
 .rc-principles h2 { margin: 0; color: var(--rc-ink); font-size: clamp(36px, 4vw, 48px); line-height: 1.18; letter-spacing: -.02em; }
-.rc-section-heading > p { margin: 0 0 3px; color: var(--rc-muted); font-size: 14px; line-height: 1.8; }
+.rc-channel-bridge { display: grid; justify-items: start; gap: 15px; }
+.rc-channel-bridge > p { margin: 0; color: var(--rc-muted); font-size: 14px; line-height: 1.8; }
+.rc-channel-bridge > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid #a9c7c5;
+  color: #086d77;
+  background: rgba(255, 255, 255, .7);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: color var(--rc-ease), border-color var(--rc-ease), background var(--rc-ease), transform var(--rc-ease);
+}
+.rc-channel-bridge > a span { color: var(--rc-orange); font-size: 16px; }
+.rc-channel-bridge > a:hover { border-color: var(--rc-cyan-dark); color: var(--rc-ink); background: var(--rc-white); transform: translateX(2px); }
+.rc-channel-bridge > a:focus-visible { outline: 3px solid var(--rc-cyan); outline-offset: 3px; }
 .rc-category-index { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 50px; border: 1px solid var(--rc-line); background: var(--rc-white); }
 .rc-category-button { position: relative; min-height: 86px; display: grid; align-content: center; gap: 5px; padding: 17px 18px; border: 0; border-right: 1px solid var(--rc-line); text-align: left; background: transparent; cursor: pointer; transition: background var(--rc-ease); }
 .rc-category-button:last-child { border-right: 0; }
 .rc-category-button::before { content: ""; position: absolute; top: -1px; right: -1px; left: -1px; height: 3px; background: transparent; }
 .rc-category-button:hover { background: #f3faf9; }
+.rc-category-button:disabled { cursor: wait; opacity: .58; }
 .rc-category-button.is-active { background: var(--rc-cyan-soft); }
 .rc-category-button.is-active::before { background: var(--rc-cyan); }
 .rc-category-button span { font-size: 14px; font-weight: 700; }
@@ -210,6 +230,8 @@
 .rc-filter-bar label > span { color: #526b75; font-size: 11px; font-weight: 600; }
 .rc-filter-bar input,
 .rc-filter-bar select { width: 100%; height: 45px; padding: 0 13px; border: 1px solid var(--rc-line); border-radius: 0; outline: 0; color: var(--rc-ink); background: var(--rc-white); font-size: 12px; }
+.rc-filter-bar input:disabled,
+.rc-filter-bar select:disabled { cursor: wait; opacity: .62; }
 .rc-filter-bar input:focus,
 .rc-filter-bar select:focus { border-color: var(--rc-cyan-dark); box-shadow: 0 0 0 2px rgba(35, 199, 217, .14); }
 .rc-result-summary { min-height: 58px; display: flex; align-items: center; gap: 16px; padding: 17px 0 12px; }
@@ -220,6 +242,32 @@
 .rc-result-summary button { margin-left: auto; border: 0; border-bottom: 1px solid #9bb0b4; color: var(--rc-muted); background: transparent; font-size: 11px; cursor: pointer; }
 
 .rc-resource-list { border-top: 1px solid var(--rc-line); }
+.rc-load-state {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 14px;
+  padding: 34px;
+  color: var(--rc-muted);
+  text-align: center;
+}
+.rc-load-state > span {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #c7dcda;
+  border-top-color: var(--rc-cyan-dark);
+  border-radius: 50%;
+  animation: rc-spin .8s linear infinite;
+}
+.rc-load-state p { margin: 0; font-size: 13px; }
+.rc-load-state.is-error { min-height: 210px; border: 1px solid var(--rc-line); border-top: 0; background: var(--rc-white); }
+.rc-load-state.is-error > div { max-width: 520px; }
+.rc-load-state.is-error h3 { margin: 0 0 8px; color: var(--rc-ink); font-size: 20px; }
+.rc-load-state.is-error p { line-height: 1.8; }
+.rc-load-state.is-error a,
+.rc-load-state.is-error button { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; margin: 16px 5px 0; padding: 0 14px; border: 1px solid #a9c7c5; color: var(--rc-cyan-dark); background: var(--rc-white); font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; }
+@keyframes rc-spin { to { transform: rotate(360deg); } }
 .rc-resource-list-head,
 .rc-resource-row { display: grid; grid-template-columns: minmax(360px, 1fr) 145px 85px 140px 92px; gap: 20px; }
 .rc-resource-list-head { padding: 13px 18px; color: #6b8088; background: #e9efed; font-size: 10px; letter-spacing: .04em; }
@@ -313,7 +361,10 @@
 .rc-download-action { min-height: 48px; display: flex; align-items: center; justify-content: center; margin-top: 22px; color: #06212b; background: var(--rc-cyan); font-size: 13px; font-weight: 750; transition: background var(--rc-ease); }
 .rc-download-action:hover { background: #57d7e2; }
 .rc-download-note { margin: 12px 0 0 !important; color: var(--rc-muted) !important; font-size: 10px !important; line-height: 1.65; letter-spacing: 0 !important; }
-.rc-back-link { display: inline-flex; margin-top: 30px; color: var(--rc-cyan-dark); font-size: 12px; font-weight: 700; }
+.rc-back-links { display: flex; flex-wrap: wrap; gap: 11px 22px; margin-top: 30px; }
+.rc-back-link { display: inline-flex; color: var(--rc-cyan-dark); font-size: 12px; font-weight: 700; }
+.rc-back-link:hover { color: var(--rc-ink); }
+.rc-back-link:focus-visible { outline: 3px solid var(--rc-cyan); outline-offset: 3px; }
 
 @media (max-width: 1024px) {
   .rc-hero,
@@ -405,5 +456,5 @@
 @media (prefers-reduced-motion: reduce) {
   .resource-center-main *,
   .resource-center-main *::before,
-  .resource-center-main *::after { scroll-behavior: auto !important; transition: none !important; }
+  .resource-center-main *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }

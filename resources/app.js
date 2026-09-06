@@ -1,18 +1,8 @@
-const categories = {
-  model: '模型与案例',
-  document: '技术文档',
-  tool: '软件与工具',
-  report: '报告与演示'
-};
+const catalogClient = window.XingxuResourceCatalog;
+const categories = catalogClient ? catalogClient.categories : {};
+const accessMethods = catalogClient ? catalogClient.accessMethods : {};
 
-const accessMethods = {
-  direct: '直接下载',
-  online: '在线阅读',
-  apply: '申请获取',
-  project: '仅限合作项目'
-};
-
-const resources = Array.isArray(window.XINGXU_RESOURCES) ? [...window.XINGXU_RESOURCES] : [];
+let resources = [];
 const state = { category: 'all', query: '', format: 'all', access: 'all', sort: 'updated-desc' };
 const categoryButtons = [...document.querySelectorAll('.rc-category-button')];
 const queryInput = document.querySelector('[data-query]');
@@ -21,6 +11,7 @@ const accessSelect = document.querySelector('[data-access]');
 const sortSelect = document.querySelector('[data-sort]');
 const list = document.querySelector('[data-resource-list]');
 const listHead = list?.querySelector('.rc-resource-list-head');
+const loadState = list?.querySelector('[data-load-state]');
 const resultCount = document.querySelector('[data-result-count]');
 const activeFilters = document.querySelector('[data-active-filters]');
 const resetButton = document.querySelector('[data-reset]');
@@ -33,15 +24,12 @@ function escapeHTML(value) {
   })[character]);
 }
 
-function safeHref(value) {
-  const href = String(value || '').trim();
-  return /^(?:https:\/\/|[a-z0-9._~/-]+(?:\?[a-z0-9._~!$&'()*+,;=:@%/?-]*)?)$/i.test(href) ? href : '';
+function safeSameOriginPath(value, prefix) {
+  return catalogClient ? catalogClient.safePath(value, prefix) : '';
 }
 
 function formatBytes(bytes) {
-  if (!Number.isFinite(bytes) || bytes <= 0) return '—';
-  const mb = bytes / 1024 / 1024;
-  return `${mb >= 10 ? mb.toFixed(1) : mb.toFixed(2)} MB`;
+  return catalogClient ? catalogClient.formatBytes(bytes) : '—';
 }
 
 function uniqueValues(key) {
@@ -79,7 +67,10 @@ function matches(resource) {
 function sorted(resourcesToSort) {
   const output = [...resourcesToSort];
   if (state.sort === 'title-asc') return output.sort((a, b) => a.title.localeCompare(b.title, 'zh-CN'));
-  return output.sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt)));
+  return output.sort((a, b) => {
+    const byDate = String(b.updatedAt).localeCompare(String(a.updatedAt));
+    return byDate || Number(a.sortOrder || 0) - Number(b.sortOrder || 0);
+  });
 }
 
 function buildRow(resource) {
@@ -110,6 +101,13 @@ function updateCounts() {
   Object.entries(counts).forEach(([key, value]) => {
     const target = document.querySelector(`[data-category-count="${key}"]`);
     if (target) target.textContent = `${value} 项`;
+  });
+}
+
+function setControlsDisabled(disabled) {
+  categoryButtons.forEach(button => { button.disabled = disabled; });
+  [queryInput, formatSelect, accessSelect, sortSelect].forEach(control => {
+    if (control) control.disabled = disabled;
   });
 }
 
@@ -184,13 +182,14 @@ function openDialog(resource) {
   dialog.querySelector('[data-dialog-edition]').textContent = resource.edition || '';
   dialog.querySelector('[data-dialog-summary]').textContent = resource.summary;
   dialog.querySelector('[data-dialog-version]').textContent = resource.version;
+  dialog.querySelector('[data-dialog-published]').textContent = resource.publishedAt;
   dialog.querySelector('[data-dialog-date]').textContent = resource.updatedAt;
   dialog.querySelector('[data-dialog-applicable]').textContent = resource.applicableTo || '以资料说明为准';
   dialog.querySelector('[data-dialog-file]').textContent = `${resource.format} · ${formatBytes(resource.sizeBytes)}${resource.pageCount ? ` · ${resource.pageCount} 页` : ''}`;
   dialog.querySelector('[data-dialog-hash]').textContent = resource.sha256;
   dialog.querySelector('[data-dialog-notice]').textContent = resource.notice || '请按页面标注的获取方式使用。';
   const action = dialog.querySelector('[data-dialog-action]');
-  const href = safeHref(resource.href);
+  const href = safeSameOriginPath(resource.detailPath, '/resources/');
   if (href) {
     action.innerHTML = `<a href="${escapeHTML(href)}">${escapeHTML(resource.actionLabel || accessMethods[resource.access] || '查看资料')}</a>`;
   } else {
@@ -199,47 +198,75 @@ function openDialog(resource) {
   dialog.showModal();
 }
 
-addOptions(formatSelect, uniqueValues('format'));
-const accessLabels = Object.fromEntries(resources.map(resource => [
-  resource.access,
-  resource.accessLabel || accessMethods[resource.access] || resource.access
-]));
-addOptions(accessSelect, uniqueValues('access'), accessLabels);
-updateCounts();
-restoreFromUrl();
-render();
+function showLoadFailure() {
+  if (loadState) {
+    loadState.classList.add('is-error');
+    loadState.innerHTML = '<div><h3>资料清单暂未载入</h3><p>网络较慢或目录正在更新，请重新读取。若多次失败，可返回官网首页联系我们。</p><button type="button" data-retry-catalog>重新读取</button><a href="../">返回官网首页</a></div>';
+    loadState.querySelector('[data-retry-catalog]')?.addEventListener('click', initializeCatalog, { once: true });
+  }
+  if (listHead) listHead.hidden = true;
+  list?.setAttribute('aria-busy', 'false');
+  setControlsDisabled(true);
+  if (resultCount) resultCount.textContent = '—';
+}
 
-categoryButtons.forEach(button => button.addEventListener('click', () => setCategory(button.dataset.category)));
-queryInput?.addEventListener('input', () => { state.query = queryInput.value.trim(); render(); });
-formatSelect?.addEventListener('change', () => { state.format = formatSelect.value; render(); });
-accessSelect?.addEventListener('change', () => { state.access = accessSelect.value; render(); });
-sortSelect?.addEventListener('change', () => { state.sort = sortSelect.value; render(); });
-resetButton?.addEventListener('click', () => {
-  state.query = '';
-  state.format = 'all';
-  state.access = 'all';
-  state.sort = 'updated-desc';
-  if (queryInput) queryInput.value = '';
-  if (formatSelect) formatSelect.value = 'all';
-  if (accessSelect) accessSelect.value = 'all';
-  if (sortSelect) sortSelect.value = 'updated-desc';
-  setCategory('all');
-});
+function bindInteractions() {
+  categoryButtons.forEach(button => button.addEventListener('click', () => setCategory(button.dataset.category)));
+  queryInput?.addEventListener('input', () => { state.query = queryInput.value.trim(); render(); });
+  formatSelect?.addEventListener('change', () => { state.format = formatSelect.value; render(); });
+  accessSelect?.addEventListener('change', () => { state.access = accessSelect.value; render(); });
+  sortSelect?.addEventListener('change', () => { state.sort = sortSelect.value; render(); });
+  resetButton?.addEventListener('click', () => {
+    state.query = '';
+    state.format = 'all';
+    state.access = 'all';
+    state.sort = 'updated-desc';
+    if (queryInput) queryInput.value = '';
+    if (formatSelect) formatSelect.value = 'all';
+    if (accessSelect) accessSelect.value = 'all';
+    if (sortSelect) sortSelect.value = 'updated-desc';
+    setCategory('all');
+  });
+  list?.addEventListener('click', event => {
+    const button = event.target.closest('[data-open-detail]');
+    if (!button) return;
+    openDialog(resources.find(resource => resource.id === button.dataset.openDetail));
+  });
+  dialog?.querySelector('[data-dialog-close]')?.addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+}
 
-document.querySelector('[data-hero-search]')?.addEventListener('submit', event => {
-  event.preventDefault();
-  const value = event.currentTarget.querySelector('input')?.value.trim() || '';
-  state.query = value;
-  if (queryInput) queryInput.value = value;
-  render();
-  document.querySelector('#catalog')?.scrollIntoView({ behavior: 'smooth' });
-});
+function initializeCatalog() {
+  list?.setAttribute('aria-busy', 'true');
+  setControlsDisabled(true);
+  if (loadState) {
+    loadState.className = 'rc-load-state';
+    loadState.innerHTML = '<span aria-hidden="true"></span><p>正在读取统一资料清单……</p>';
+  }
+  if (!catalogClient) {
+    showLoadFailure();
+    return;
+  }
+  catalogClient.load((error, catalog) => {
+    if (error) {
+      showLoadFailure();
+      return;
+    }
+    resources = [...catalog.resources];
+    loadState?.remove();
+    list?.setAttribute('aria-busy', 'false');
+    setControlsDisabled(false);
+    addOptions(formatSelect, uniqueValues('format'));
+    const accessLabels = Object.fromEntries(resources.map(resource => [
+      resource.access,
+      resource.accessLabel || accessMethods[resource.access] || resource.access
+    ]));
+    addOptions(accessSelect, uniqueValues('access'), accessLabels);
+    updateCounts();
+    restoreFromUrl();
+    bindInteractions();
+    render();
+  });
+}
 
-list?.addEventListener('click', event => {
-  const button = event.target.closest('[data-open-detail]');
-  if (!button) return;
-  openDialog(resources.find(resource => resource.id === button.dataset.openDetail));
-});
-
-dialog?.querySelector('[data-dialog-close]')?.addEventListener('click', () => dialog.close());
-dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+initializeCatalog();

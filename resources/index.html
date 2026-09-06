@@ -15,14 +15,14 @@
   <meta property="og:image" content="https://xingxutek.com/resources/assets/knowledge-basin.webp">
   <title>技术资料中心｜星旭新能源</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/NotoSansSC-Resource-Subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/NotoSansSC-Resource-Subset.ttf?v=20260906-link2" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/knowledge-basin.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="../css/style.css?v=20260905-resources">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"西安星旭新能源科技有限公司","alternateName":"星旭新能源","url":"https://xingxutek.com","logo":"https://xingxutek.com/images/logo.svg","telephone":"15592546088","foundingDate":"2026-04-15","taxID":"91610112MAKCD78PXF","address":{"@type":"PostalAddress","addressCountry":"CN","addressRegion":"陕西省","addressLocality":"西安市","streetAddress":"未央区北辰路绿地创海大厦2208-V378室"}}</script>
-  <link rel="stylesheet" href="styles.css?v=20260905-a12">
+  <link rel="stylesheet" href="styles.css?v=20260906-link2">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"星旭新能源技术资料中心","url":"https://xingxutek.com/resources/","description":"按能源对象、资料类型、软件版本和获取方式查找公开技术资料。","isPartOf":{"@type":"WebSite","name":"星旭新能源","url":"https://xingxutek.com/"}}</script>
-  <script src="resources.js?v=20260905-a12" defer></script>
-  <script src="app.js?v=20260905-a12" defer></script>
+  <script src="catalog-client.js?v=20260906-link2" defer></script>
+  <script src="app.js?v=20260906-link2" defer></script>
   <script src="../js/main.js?v=20260802" defer></script>
 </head>
 <body class="page-resource-center public-home-only">
@@ -53,32 +53,36 @@
       <div class="rc-shell">
         <header class="rc-section-heading">
           <div><p>资料索引</p><h2 id="catalog-title">查找适合当前任务的资料</h2></div>
-          <p>每项公开资料均标注版本、适用环境、更新日期、文件格式和获取方式。</p>
+          <div class="rc-channel-bridge">
+            <p>每项公开资料均标注版本、适用环境、更新日期、文件格式和获取方式。</p>
+            <a href="../wechat/downloads/">前往手机资料下载专栏 <span aria-hidden="true">→</span></a>
+          </div>
         </header>
 
         <div class="rc-category-index" aria-label="按资料类别筛选">
-          <button class="rc-category-button is-active" type="button" aria-pressed="true" data-category="all"><span>全部资料</span><small data-category-count="all">0 项</small></button>
-          <button class="rc-category-button" type="button" aria-pressed="false" data-category="model"><span>模型与案例</span><small data-category-count="model">0 项</small></button>
-          <button class="rc-category-button" type="button" aria-pressed="false" data-category="document"><span>技术文档</span><small data-category-count="document">0 项</small></button>
-          <button class="rc-category-button" type="button" aria-pressed="false" data-category="tool"><span>软件与工具</span><small data-category-count="tool">0 项</small></button>
-          <button class="rc-category-button" type="button" aria-pressed="false" data-category="report"><span>报告与演示</span><small data-category-count="report">0 项</small></button>
+          <button class="rc-category-button is-active" type="button" aria-pressed="true" data-category="all" disabled><span>全部资料</span><small data-category-count="all">0 项</small></button>
+          <button class="rc-category-button" type="button" aria-pressed="false" data-category="model" disabled><span>模型与案例</span><small data-category-count="model">0 项</small></button>
+          <button class="rc-category-button" type="button" aria-pressed="false" data-category="document" disabled><span>技术文档</span><small data-category-count="document">0 项</small></button>
+          <button class="rc-category-button" type="button" aria-pressed="false" data-category="tool" disabled><span>软件与工具</span><small data-category-count="tool">0 项</small></button>
+          <button class="rc-category-button" type="button" aria-pressed="false" data-category="report" disabled><span>报告与演示</span><small data-category-count="report">0 项</small></button>
         </div>
 
         <div class="rc-filter-bar" aria-label="资料筛选">
-          <label class="rc-filter-search"><span>关键词</span><input type="search" placeholder="搜索标题、主题或适用对象" autocomplete="off" data-query></label>
-          <label><span>文件格式</span><select data-format><option value="all">全部格式</option></select></label>
-          <label><span>获取方式</span><select data-access><option value="all">全部方式</option></select></label>
-          <label><span>排序</span><select data-sort><option value="updated-desc">最近更新</option><option value="title-asc">标题顺序</option></select></label>
+          <label class="rc-filter-search"><span>关键词</span><input type="search" placeholder="搜索标题、主题或适用对象" autocomplete="off" data-query disabled></label>
+          <label><span>文件格式</span><select data-format disabled><option value="all">全部格式</option></select></label>
+          <label><span>获取方式</span><select data-access disabled><option value="all">全部方式</option></select></label>
+          <label><span>排序</span><select data-sort disabled><option value="updated-desc">最近更新</option><option value="title-asc">标题顺序</option></select></label>
         </div>
 
         <div class="rc-result-summary">
-          <p>共找到 <strong data-result-count>0</strong> 项资料</p>
-          <div class="rc-active-filters" data-active-filters aria-live="polite"></div>
+          <p role="status" aria-live="polite">共找到 <strong data-result-count>0</strong> 项资料</p>
+          <div class="rc-active-filters" data-active-filters></div>
           <button type="button" data-reset hidden>清除全部筛选</button>
         </div>
 
-        <div class="rc-resource-list" data-resource-list aria-live="polite">
+        <div class="rc-resource-list" data-resource-list aria-busy="true">
           <div class="rc-resource-list-head" aria-hidden="true"><span>资料信息</span><span>版本与日期</span><span>格式</span><span>获取方式</span><span>操作</span></div>
+          <div class="rc-load-state" data-load-state role="status"><span aria-hidden="true"></span><p>正在读取统一资料清单……</p></div>
         </div>
 
         <div class="rc-empty-state" data-empty hidden>
@@ -108,6 +112,7 @@
       <p class="rc-dialog-summary" data-dialog-summary></p>
       <dl>
         <div><dt>当前版本</dt><dd data-dialog-version></dd></div>
+        <div><dt>首次公开</dt><dd data-dialog-published></dd></div>
         <div><dt>更新日期</dt><dd data-dialog-date></dd></div>
         <div><dt>适用范围</dt><dd data-dialog-applicable></dd></div>
         <div><dt>文件信息</dt><dd data-dialog-file></dd></div>
