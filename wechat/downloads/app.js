@@ -54,7 +54,7 @@
       '<p class="resource-edition">', escapeHTML(resource.edition), '</p>',
       '<div class="resource-actions">',
         '<a class="open-pdf" href="', escapeHTML(filePath), '" target="_blank" rel="noopener">打开 PDF <span aria-hidden="true">↗</span></a>',
-        '<a class="primary download-pdf" href="', escapeHTML(filePath), '" download="', escapeHTML(downloadName), '">下载 PDF <span aria-hidden="true">↓</span></a>',
+        '<a class="primary download-pdf" href="/wechat/downloads/save/?id=', encodeURIComponent(resource.id), '">下载 PDF <span aria-hidden="true">↓</span></a>',
       '</div>'
     ].join('');
     return article;
