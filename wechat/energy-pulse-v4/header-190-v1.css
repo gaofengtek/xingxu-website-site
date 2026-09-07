@@ -1,0 +1,5 @@
+.hero { min-height:190px; padding:10px 16px 16px; }
+.hero .brand { min-height:30px; }
+.hero h1 { margin-top:10px; font-size:26px; line-height:1.28; }
+.hero .title-rule { margin-top:6px; }
+.hero .hero-description { margin-top:6px; }
