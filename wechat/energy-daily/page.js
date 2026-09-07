@@ -3,6 +3,7 @@
   const buttons = [...document.querySelectorAll('[data-filter]')];
   const latest = document.querySelector('.latest');
   const history = document.querySelector('.history');
+  const historyItems = [...document.querySelectorAll('.history .report-item')];
   const empty = document.querySelector('.content > .empty-state');
   const status = document.querySelector('.filter-status');
   const select = button => {
@@ -12,11 +13,17 @@
       item.classList.toggle('active', active);
       item.setAttribute('aria-pressed', String(active));
     });
-    const visible = category === '全部' || latest.dataset.category === category;
-    latest.hidden = !visible;
-    history.hidden = !visible;
-    empty.hidden = visible;
-    status.textContent = `${category}：${visible ? 1 : 0}份报告。`;
+    const latestVisible = category === '全部' || latest.dataset.category === category;
+    latest.hidden = !latestVisible;
+    const visibleHistory = historyItems.filter(item => {
+      const visible = category === '全部' || item.dataset.category === category;
+      item.hidden = !visible;
+      return visible;
+    });
+    history.hidden = visibleHistory.length === 0;
+    const count = Number(latestVisible) + visibleHistory.length;
+    empty.hidden = count > 0;
+    status.textContent = `${category}：${count}份报告。`;
   };
   buttons.forEach(button => {
     button.addEventListener('click', () => select(button));

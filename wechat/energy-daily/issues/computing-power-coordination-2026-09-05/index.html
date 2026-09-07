@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#07152f">
+  <meta name="description" content="能源日报：算电协同调度的建模方法与验证边界，共 36 页PDF连续阅读版。">
+  <title>算电协同调度的建模方法与验证边界｜能源日报</title>
+  <link rel="stylesheet" href="reader.css">
+  <script id="reader-config" type="application/json">{"schemaVersion":1,"profile":"energy-daily-pdf-reader-v1","content":{"title":"算电协同调度的建模方法与验证边界","titleLines":["算电协同调度的","建模方法与验证边界"],"summary":"从业务任务建模、PCC功率换算到滚动调度与分级验证，梳理算电协同的模型、约束和证据边界。","tags":["任务建模","PCC功率","滚动调度","验证边界"],"category":"数字能源","issueNumber":19,"issueDate":"2026-09-05"},"brand":{"logoSrc":"assets/logo.png","name":"星旭新能源","column":"能源日报"},"route":{"slug":"computing-power-coordination-2026-09-05","detailPath":"/wechat/energy-daily/issues/computing-power-coordination-2026-09-05/","returnPath":"/wechat/energy-daily/"},"reader":{"pageCount":36,"pageAspect":{"width":16,"height":9},"pageImage":{"directory":"assets/pages","prefix":"page-","extension":"webp","digits":2,"width":1600,"height":900},"chapters":[{"key":"intro","label":"导读","title":"阅读导引","note":"先看算电协同的对象、闭环和全篇结构。","startPage":1},{"key":"boundary","label":"边界","title":"边界与动因","note":"明确对象、计量口径、公开进展和可调能力条件。","startPage":4},{"key":"models","label":"模型","title":"模型与约束","note":"把任务量逐级换算到PCC功率，并纳入状态约束。","startPage":11},{"key":"dispatch","label":"调度","title":"调度与执行","note":"区分计划、滚动修正、执行权限和故障恢复。","startPage":19},{"key":"delivery","label":"验证","title":"算例与验证边界","note":"用教学复算、证据等级和工程Gate说明当前验证边界。","startPage":25}]}}</script>
+  <script src="reader.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#report-pages">跳到报告正文</a>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-fill"></span></div>
+
+  <header class="site-bar">
+    <a class="brand" href="/wechat/energy-daily/" aria-label="返回能源日报">
+      <img src="assets/logo.png" width="38" height="38" alt="">
+      <span><b>星旭新能源</b><small>能源日报</small></span>
+    </a>
+    <div class="reader-state" aria-live="polite">
+      <span class="topic-badge">数字能源专题</span>
+      <span class="page-counter"><b id="current-page">1</b> / <span id="total-pages">36</span></span>
+    </div>
+  </header>
+
+  <main>
+    <article class="article">
+      <header class="article-head">
+        <div class="article-head-inner">
+          <h1>算电协同调度的<br>建模方法与验证边界</h1>
+          <p class="dek">从业务任务建模、PCC功率换算到滚动调度与分级验证，梳理算电协同的模型、约束和证据边界。</p>
+          <div class="topic-list" aria-label="本期主题"><span>任务建模</span><span>PCC功率</span><span>滚动调度</span><span>验证边界</span></div>
+        </div>
+      </header>
+
+      <nav class="chapter-nav" aria-label="报告五节点分类导航">
+        <div class="chapter-nav-track"><a class="active" href="#page-1" data-chapter="intro" aria-label="01 导读，第1至3页" aria-current="location"><span class="node-no">01</span><span class="node-dot" aria-hidden="true"></span><b>导读</b></a><a href="#page-4" data-chapter="boundary" aria-label="02 边界，第4至10页"><span class="node-no">02</span><span class="node-dot" aria-hidden="true"></span><b>边界</b></a><a href="#page-11" data-chapter="models" aria-label="03 模型，第11至18页"><span class="node-no">03</span><span class="node-dot" aria-hidden="true"></span><b>模型</b></a><a href="#page-19" data-chapter="dispatch" aria-label="04 调度，第19至24页"><span class="node-no">04</span><span class="node-dot" aria-hidden="true"></span><b>调度</b></a><a href="#page-25" data-chapter="delivery" aria-label="05 验证，第25至36页"><span class="node-no">05</span><span class="node-dot" aria-hidden="true"></span><b>验证</b></a></div>
+      </nav>
+
+      <section class="reader-layout" aria-label="PDF页面连续阅读区">
+        <ol id="report-pages" class="report-pages"></ol>
+        <noscript><p class="noscript-note">当前浏览器未启用 JavaScript，无法加载报告页面。</p></noscript>
+      </section>
+
+      <footer class="article-end">
+        <p class="end-mark" aria-hidden="true">36</p>
+        <p class="section-kicker">REPORT COMPLETE</p>
+        <h2>本期阅读完成</h2>
+        <p>您已经阅读完《算电协同调度的建模方法与验证边界》全部 36 页。</p>
+        <a href="/wechat/energy-daily/">返回能源日报</a>
+      </footer>
+    </article>
+  </main>
+
+  <dialog class="page-viewer" id="page-viewer" aria-labelledby="viewer-title">
+    <div class="viewer-bar">
+      <div><b id="viewer-title">单页查看</b><span id="viewer-counter">1 / 36 · 可双指缩放</span></div>
+      <button type="button" id="viewer-close" aria-label="关闭单页查看">关闭</button>
+    </div>
+    <div class="viewer-canvas"><img id="viewer-image" src="assets/pages/page-01.webp" alt="算电协同调度的建模方法与验证边界，第 1 页"></div>
+    <div class="viewer-actions">
+      <button type="button" id="viewer-prev">上一页</button>
+      <button type="button" id="viewer-next">下一页</button>
+    </div>
+  </dialog>
+</body>
+</html>
