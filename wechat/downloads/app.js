@@ -50,9 +50,6 @@
     article.className = 'resource-item';
     article.setAttribute('data-resource-id', resource.id);
     article.innerHTML = [
-      '<div class="resource-topline">',
-        '<p class="resource-label"><span class="resource-index">', escapeHTML(itemNumber), '</span><span>', escapeHTML(categories[resource.category]), '</span></p>',
-      '</div>',
       '<h3>', escapeHTML(resource.title), '</h3>',
       '<p class="resource-edition">', escapeHTML(resource.edition), '</p>',
       '<div class="resource-actions">',
@@ -74,6 +71,7 @@
     for (i = 0; i < categoryKeys.length; i += 1) {
       if (counts[categoryKeys[i]] > 0) keys.push(categoryKeys[i]);
     }
+    categoryNav.hidden = keys.length <= 2;
     categoryNav.innerHTML = keys.map(function (key) {
       var label = key === 'all' ? '全部' : categories[key];
       return '<button type="button" data-category="' + escapeHTML(key) + '" aria-pressed="' + String(state.category === key) + '">' + escapeHTML(label) + '<small>' + escapeHTML(counts[key] || 0) + '</small></button>';
