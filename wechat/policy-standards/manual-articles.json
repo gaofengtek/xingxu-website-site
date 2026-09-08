@@ -1,0 +1,14 @@
+{
+  "schema_version": "xingxu-policy-manual-links-1.0",
+  "column": "policy-standards",
+  "description": "历史文章人工确认链接目录，与需要真实微信API身份的articles.json分别维护。",
+  "articles": [
+    {
+      "title": "虚拟电厂技术导则实施",
+      "canonical_url": "https://mp.weixin.qq.com/s/Z4u52QpUjuqZRhq7K1xYPw",
+      "document_type": "标准",
+      "confirmation_source": "user_provided_published_url",
+      "confirmed_on": "2026-09-08"
+    }
+  ]
+}
