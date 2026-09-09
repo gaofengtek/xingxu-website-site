@@ -1,0 +1,11 @@
+/* Scoped to this column; shared header and other columns retain their styles. */
+.policy-card h3{font-size:20px;line-height:1.5;letter-spacing:0;text-wrap:balance;word-break:normal;overflow-wrap:anywhere}
+.policy-card h3 br{display:none}
+.policy-card>p{font-size:14px;line-height:1.75;color:var(--muted);margin:10px 0 0}
+.policy-card .card-action{margin-top:16px;flex-wrap:wrap;gap:8px}
+.policy-card .meta time{font-size:11px}
+[data-policy-history] .policy-card{background:#fff;border-top:1px solid var(--line);box-shadow:none}
+[data-policy-history] .policy-card h3{font-size:18px;margin-top:10px}
+[data-policy-history] .tags{margin-top:10px}
+[data-policy-history] .primary{background:transparent;color:#086b78;box-shadow:none;min-height:44px;padding:8px 12px}
+@media(max-width:374px){.policy-card h3{font-size:19px}.policy-card .primary{gap:12px;padding:10px 12px}}
